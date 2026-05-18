@@ -1,245 +1,163 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mou Brothers Property Care",
+  title: "Home | Mou Brothers Property Care",
   description:
-    "Honest, hardworking local property care in Coquitlam — mowing, trimming, pruning, cleanup, aeration, and weed control.",
+    "Reliable lawn care from two local brothers in Coquitlam. Free quotes, fast response, honest pricing.",
 };
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 px-6 py-8 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-6xl">
-        <header className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="inline-flex rounded-full bg-emerald-100 px-4 py-1 text-sm font-medium text-emerald-800">
-              Local family-run property care in Coquitlam
-            </p>
-          </div>
-          <div className="space-y-1 text-right">
-            <p className="text-sm text-slate-600">Fast response. Honest pricing.</p>
-            <a
-              href="tel:7786367048"
-              className="font-semibold text-slate-900 underline underline-offset-4"
+    <div className="animate-in">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[600px] flex items-center justify-center bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 text-white overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="grass" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 0 15 Q 5 10 10 15 Q 15 10 20 15" stroke="white" strokeWidth="0.5" fill="none" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grass)" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-16 sm:py-24">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 slide-in-up">
+            Reliable Lawn Care From Two Local Brothers
+          </h1>
+          <p className="text-lg sm:text-xl text-emerald-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Serving Coquitlam and surrounding areas with honest, hardworking property maintenance. Free estimates, fast response, fair pricing.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/quote"
+              className="rounded-full bg-white px-8 py-3 text-lg font-semibold text-emerald-800 transition-all hover:bg-slate-100 hover:shadow-lg"
             >
-              778-636-7048
-            </a>
+              Get Free Quote
+            </Link>
+            <Link
+              href="/services"
+              className="rounded-full border-2 border-white px-8 py-3 text-lg font-semibold text-white transition-all hover:bg-white hover:text-emerald-800"
+            >
+              View Services
+            </Link>
           </div>
-        </header>
+        </div>
+      </section>
 
-        <section className="mt-14 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <div className="space-y-8">
-            <div className="max-w-xl">
-              <p className="text-sm uppercase tracking-[0.24em] text-emerald-700">Mou Brothers Property Care</p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                Honest yard care for Coquitlam homes and families.
-              </h1>
-              <p className="mt-6 text-base leading-8 text-slate-700 sm:text-lg">
-                We keep lawns tidy, hedges neat, and properties looking cared for with dependable service from a local family team.
-                No pressure — just hardworking care when you need it.
-              </p>
+      {/* Trust Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-8">
+              Why choose Mou Brothers?
+            </h2>
+            <div className="space-y-4">
+              {[
+                { icon: "👨‍👨‍👦", title: "Family-run business", desc: "Two brothers committed to quality work and honest service." },
+                { icon: "⚡", title: "Fast response times", desc: "Quick scheduling and usually same-day quote responses." },
+                { icon: "💰", title: "Free estimates", desc: "No hidden fees. Clear, upfront pricing for every job." },
+                { icon: "📍", title: "Local to Coquitlam", desc: "We know the area and treat every customer like neighbors." },
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <span className="text-3xl">{item.icon}</span>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{item.title}</h3>
+                    <p className="text-slate-600 text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">Quick Contact</h3>
+            <div className="space-y-6">
+              <div>
+                <p className="text-sm text-slate-600 mb-2">Call or text us today:</p>
+                <a
+                  href="tel:7786367048"
+                  className="inline-flex items-center gap-2 text-2xl font-bold text-emerald-700 hover:text-emerald-800 transition"
+                >
+                  778-636-7048
+                </a>
+              </div>
+              <div>
+                <p className="text-sm text-slate-600 mb-2">Email us:</p>
+                <a
+                  href="mailto:info@moubrothers.com"
+                  className="text-emerald-700 hover:text-emerald-800 transition font-medium"
+                >
+                  info@moubrothers.com
+                </a>
+              </div>
+              <Link
+                href="/quote"
+                className="block w-full rounded-full bg-emerald-700 px-6 py-3 text-center font-semibold text-white transition hover:bg-emerald-800"
               >
                 Get Free Quote
-              </a>
-              <a
-                href="tel:7786367048"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
-              >
-                Call 778-636-7048
-              </a>
+              </Link>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-            <div className="space-y-6">
-              <div className="rounded-3xl bg-emerald-50 p-6">
-                <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Trusted neighborhood care</p>
-                <p className="mt-4 text-slate-700">Local crews, fair estimates, and the kind of attention your yard deserves.</p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  "Mowing",
-                  "Trimming",
-                  "Hedge pruning",
-                  "Cleanup",
-                  "Aeration",
-                  "Weed control",
-                ].map((service) => (
-                  <div key={service} className="rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4">
-                    <p className="text-sm font-semibold text-slate-900">{service}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-20 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="rounded-3xl bg-white p-8 shadow-sm sm:p-10">
-            <h2 className="text-2xl font-semibold text-slate-950">A family team you can count on.</h2>
-            <p className="mt-5 text-slate-700 leading-8">
-              We are a family-run property care service rooted in Coquitlam. Every job is handled with pride, clear communication, and the kind of hard work that comes from doing this locally for our neighbors.
-            </p>
-            <ul className="mt-8 space-y-4 text-slate-700">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-700" />
-                Fast response and dependable scheduling for busy homeowners.
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-700" />
-                Family business values: honesty, respect, and work done right.
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-700" />
-                Careful attention to lawns, edges, hedges and cleanup detail.
-              </li>
-            </ul>
-          </div>
-
-          <div className="rounded-3xl bg-slate-950 p-8 text-white shadow-lg sm:p-10">
-            <h3 className="text-xl font-semibold">Services designed for your property.</h3>
-            <p className="mt-4 text-slate-300 leading-7">
-              Simple, honest pricing and flexible visits. We focus on the tasks that keep your yard healthy and presentable all season long.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl bg-slate-900 p-5">
-                <p className="font-semibold">Weekly or bi-weekly mowing</p>
-              </div>
-              <div className="rounded-3xl bg-slate-900 p-5">
-                <p className="font-semibold">Professional hedge shaping</p>
-              </div>
-              <div className="rounded-3xl bg-slate-900 p-5">
-                <p className="font-semibold">Seasonal cleanup and bed care</p>
-              </div>
-              <div className="rounded-3xl bg-slate-900 p-5">
-                <p className="font-semibold">Aeration and weed control support</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-20">
-          <h2 className="text-2xl font-semibold text-slate-950">What our neighbors say</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+      {/* Service Preview Section */}
+      <section className="bg-slate-900 text-white py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+            Services We Offer
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              {
-                name: "Sophie R.",
-                role: "Coquitlam homeowner",
-                quote:
-                  "They showed up on time, left the yard spotless, and were easy to work with. I trust them with our weekly mowing.",
-              },
-              {
-                name: "Jason M.",
-                role: "Family property",
-                quote:
-                  "Friendly service and a great price. They took care of the hedge trimming and cleanup exactly how I wanted.",
-              },
-              {
-                name: "Priya K.",
-                role: "Busy professional",
-                quote:
-                  "Fast response and real attention to detail. The lawn looks much healthier after their aeration and weed control visit.",
-              },
-            ].map((testimonial) => (
-              <article
-                key={testimonial.name}
-                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              "Lawn Mowing",
+              "Edging & Trimming",
+              "Hedge Pruning",
+              "Weed Control",
+              "Aeration",
+              "Leaf Removal",
+              "Dethatching",
+              "Yard Cleanup",
+            ].map((service, idx) => (
+              <div
+                key={idx}
+                className="rounded-xl bg-slate-800 p-4 text-center hover:bg-emerald-700 transition-all duration-300"
               >
-                <p className="text-slate-700 leading-7">“{testimonial.quote}”</p>
-                <div className="mt-6">
-                  <p className="font-semibold text-slate-950">{testimonial.name}</p>
-                  <p className="text-sm text-slate-500">{testimonial.role}</p>
-                </div>
-              </article>
+                <p className="font-semibold text-sm">{service}</p>
+              </div>
             ))}
           </div>
-        </section>
-
-        <section className="mt-20 rounded-[2rem] bg-emerald-900 px-6 py-10 text-white sm:px-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-emerald-200">Ready when you are</p>
-            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-              Call or message us for a free estimate today.
-            </h2>
-            <p className="mt-4 text-slate-100 sm:text-lg">
-              Honest property care from a local Coquitlam family business. Fast replies and dependable scheduling.
-            </p>
-            <a
-              href="tel:7786367048"
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-emerald-950 shadow-lg transition hover:bg-slate-100"
+          <div className="text-center mt-10">
+            <Link
+              href="/services"
+              className="inline-flex rounded-full border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-slate-900"
             >
-              778-636-7048
-            </a>
+              View All Services
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="contact" className="mt-20 rounded-3xl bg-white p-8 shadow-sm sm:p-10">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-emerald-700">Contact</p>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-950">Let’s schedule your next visit.</h2>
-              <p className="mt-4 text-slate-700 leading-7">
-                Fill out the form and we’ll get back to you quickly with a clear estimate for your yard care needs.
-              </p>
-            </div>
-            <form
-              action="mailto:info@moubrothers.com"
-              method="post"
-              encType="text/plain"
-              className="space-y-5"
-            >
-              <div>
-                <label htmlFor="name" className="text-sm font-medium text-slate-900">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="Name"
-                  type="text"
-                  required
-                  className="mt-2 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="text-sm font-medium text-slate-900">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="Email"
-                  type="email"
-                  required
-                  className="mt-2 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="text-sm font-medium text-slate-900">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="Message"
-                  rows={5}
-                  required
-                  className="mt-2 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
-              >
-                Send message
-              </button>
-            </form>
-          </div>
-        </section>
-      </div>
-    </main>
+      {/* CTA Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="rounded-2xl bg-emerald-700 text-white p-8 sm:p-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Ready to transform your yard?
+          </h2>
+          <p className="text-lg text-emerald-100 mb-8 max-w-2xl mx-auto">
+            Call or request a free estimate today. Fast local response — usually same-day quotes.
+          </p>
+          <a
+            href="tel:7786367048"
+            className="inline-flex rounded-full bg-white px-8 py-3 text-lg font-semibold text-emerald-700 transition-all hover:bg-slate-100"
+          >
+            Call 778-636-7048
+          </a>
+        </div>
+      </section>
+    </div>
   );
 }
