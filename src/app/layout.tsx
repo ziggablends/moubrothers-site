@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Mou Brothers Property Care | Lawn Care & Maintenance in Coquitlam",
-  description:
-    "Honest, hardworking lawn care and property maintenance from two local brothers in Coquitlam. Free quotes, fast response, professional service.",
+  title: "Welcome",
+  description: "A fresh start",
 };
 
 export default function RootLayout({
@@ -26,14 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
-    >
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en">
+      <body>
+        <main>{children}</main>
       </body>
     </html>
   );
